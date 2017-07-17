@@ -37,9 +37,9 @@ npm start</code></pre>
 ├── README.md # what you're currently reading
 ├── deploy.sh # deploy script, adjust to your needs...
 ├── package.json # definition of all "npm" commands &amp; packages that are required
-├── server.ts # small server to test app locally
+├── server.js # small server to test app locally
 ├── .gitignore # files being ignored from git
-└── compile.ts # part of the build process
+└── compile.js # part of the build process
 </code></pre>
 
 <h2 id="development">Development</h2>
@@ -60,9 +60,27 @@ npm start</code></pre>
 <p>If styles are for a specific component, put them in the same folder as the html. <strong>You'll have to register/import all .scss files in styles.scss!</strong></p>
 <p>If they are general-purpose styles, put them in the styles folder at a matching position.</p>
 <p>After changes, run <code>npm run build</code>.</p>
+
+<h3>
+  Creating a new page
+</h3>
+<p>
+  To create a new page, create the necessary (AMP compatible) html. Then open <b><code>compile.js</code></b> and
+  <b>register</b> your new page there!
+</p>
+
 <h3>AMP</h3>
 <p>Since it's an AMP project, you'll have to be careful to follow the rules
   of AMP. For instance, in an AMP project you're not allowed to use
   the <code>&lt;img&gt;</code> tag. You'll have to use the <code>&lt;amp-img&gt;</code> tag. If you don't follow those rules
   your page doesn't break, it just doesn't get the "AMP-SEO Bonus" anymore. During the build process, it logs to the console whether each page passes amp validation or not.</p>
-<p>AMP has a lot of predefined components and a pretty good documentation you can find at https://www.ampproject.org/ and you'll find examples for all components at https://ampbyexample.com/.</p>
+<p>AMP has a lot of predefined components and a pretty good documentation you can find at <a href="https://www.ampproject.org/">https://www.ampproject.org/</a> and you'll find examples for all components at
+  <a href="https://ampbyexample.com/">https://ampbyexample.com/</a>.</p>
+
+<h2>
+  Contact
+</h2>
+<p>
+  If you're missing a feature from this starter or have some other feedback for me, let me know! You can reach me at
+  <a href="mailto:bersling@gmail.com">bersling@gmail.com</a>.
+</p>
