@@ -1,0 +1,42 @@
+{
+  "name": "amp-project-starter",
+  "version": "1.0.0",
+  "description": "Tutorial Page how to setup the TypeScript-Mean project from scratch",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && mkdir -p dist && cp -r img dist && npm run compile",
+    "compile": "node compile.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bersling/ts-mean.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "MEAN"
+  ],
+  "author": "Hans Mueller <hans@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bersling/ts-mean/issues"
+  },
+  "homepage": "https://github.com/bersling/ts-mean#readme",
+  "devDependencies": {
+    "@types/express": "^4.0.36",
+    "@types/node": "^8.0.9",
+    "@types/serve-static": "^1.7.31",
+    "amphtml-validator": "^1.0.20",
+    "express": "^4.15.3",
+    "mu2": "^0.5.21",
+    "node-sass": "^4.5.3",
+    "normalize-scss": "^7.0.0",
+    "ts-node": "^3.2.0",
+    "typescript": "^2.4.1",
+    "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "showdown": "^1.7.1"
+  }
+}

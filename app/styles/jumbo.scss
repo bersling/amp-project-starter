@@ -1,0 +1,48 @@
+@import 'colors';
+
+
+.jumbo-vertical {
+
+  background: $primary-color;
+
+  padding: 70px 0 70px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: $text-on-primary;
+  text-align: center;
+  line-height: 161%;
+
+  .jumbo-title {
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .jumbo-subtitle {
+    font-size: 20px;
+  }
+
+  .jumbo-subsubtitle {
+    font-size: 15px;
+  }
+
+  &.huge {
+
+    .jumbo-title {
+      font-size: 50px;
+    }
+
+    .jumbo-subtitle {
+      font-size: 40px;
+    }
+
+    .jumbo-subsubtitle {
+      font-size: 30px;
+    }
+
+  }
+
+}

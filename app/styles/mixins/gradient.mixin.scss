@@ -1,0 +1,23 @@
+@mixin diagonal-gradient ($color-lefttop, $color-rightbottom) {
+  background: $color-lefttop; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, $color-lefttop, $color-rightbottom); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, $color-lefttop, $color-rightbottom); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, $color-lefttop, $color-rightbottom); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, $color-lefttop, $color-rightbottom); /* Standard syntax */
+}
+
+@mixin vertical-gradient ($color-top, $color-bottom) {
+  background: $color-top; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($color-top, $color-bottom); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($color-top, $color-bottom); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($color-top, $color-bottom); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($color-top, $color-bottom); /* Standard syntax */
+}
+
+@mixin horizontal-gradient ($color-left, $color-right) {
+  background: $color-left; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, $color-left, $color-right); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $color-left, $color-right); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $color-left, $color-right); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $color-left, $color-right); /* Standard syntax */
+}

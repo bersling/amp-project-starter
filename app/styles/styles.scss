@@ -1,0 +1,127 @@
+// Normalize makes all default html elements more consistent across browsers.
+// For example, buttons look usually different on FF, IE, Chrome... But not if you include normalize.css
+@import '../../node_modules/normalize-scss/sass/_normalize';
+
+// Some basics
+@import 'colors';
+@import 'responsive';
+
+// Styling some default html elements
+@import 'html/a';
+@import 'html/article';
+@import 'html/body';
+@import 'html/button';
+@import 'html/hr';
+@import 'html/input';
+@import 'html/main';
+@import 'html/p';
+@import 'html/pre';
+
+// the components
+@import 'jumbo';
+@import '../components/footer/footer';
+@import '../components/header/header';
+@import '../components/learn-more/learn-more';
+
+/**
+Some generic styles that are reused throughout the app.
+If the styles belong to a specific ui element, don't put them here.
+If the you want to style an html element, create a new corresponding file in the html directory
+If your styles are for a custom ui component, put them in the same folder as the html file.
+ */
+
+.padded {
+  padding: 10px;
+  @media(min-width: $xs-sm) {
+    padding: 20px;
+  }
+}
+
+.lightbox {
+  min-height: 100vh;
+  width: 100vw;
+  padding-top: 20px;
+  background: rgba(100,100,100, 0.8);
+}
+
+// mainly helpful to adjust max width on images
+.mw100 { max-width: 100px; }
+.mw150 { max-width: 150px; }
+.mw200 { max-width: 200px; }
+.mw250 { max-width: 250px; }
+.mw300 { max-width: 300px; }
+.mw350 { max-width: 350px; }
+.mw400 { max-width: 400px; }
+.mw450 { max-width: 450px; }
+.mw500 { max-width: 500px; }
+.mw550 { max-width: 550px; }
+.mw600 { max-width: 600px; }
+.mw650 { max-width: 650px; }
+.mw700 { max-width: 700px; }
+
+// for aligning elements that have a max-width set
+.mwc {  margin: 0 auto; }
+.mwl {  margin-left: 0; margin-right: auto; }
+.mwr {  margin-right: 0; margin-left: auto; }
+
+// give some element some margins. used when padding is not an option
+.margin-left-right {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+// used to highlight especially important bits of the text
+.highlight {
+  color: $accent;
+}
+
+// useful to document directory structure for code snippets
+.file-label {
+  margin-bottom: -10px;
+  font-size: 0.7rem;
+  color: #459B45;
+}
+.file-label-two {
+  padding: 5px;
+  color: #459B45;
+}
+amp-accordion>section>pre.code-snippet {
+  white-space: pre-wrap;
+}
+
+// to introduce some space between html elements
+.spacer10 {
+  height: 10px;
+}
+.spacer50 {
+  height: 50px;
+}
+
+// Alignment
+.center {
+  text-align: center;
+}
+.right-align {
+  text-align: right;
+}
+.inline-block {
+  display: inline-block;
+}
+
+// to set top-anchors
+.anchor {
+  display: block;
+  position: relative;
+  top: -50px;
+  visibility: hidden;
+}
+
+// to create a box around an something.
+.boxed {
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+// to lightly reduce opacity of an item
+.opacity80 {
+  opacity: 0.8;
+}

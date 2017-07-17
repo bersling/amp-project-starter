@@ -1,0 +1,37 @@
+$header-height: 50px;
+
+/* header styles */
+header {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: $header-height;
+  z-index: 2;
+  background: RGBA(255, 255, 255, 0.90);
+  box-shadow: 0 0 5px 2px rgba(0,0,0,.1);
+
+  .primary-nav-inner {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .primary-nav-right {
+    margin-left: auto;
+    padding-right: 20px;
+  }
+
+  .nav-logo-button {
+    height: 50px;
+  }
+
+}
+
+.header-spacer {
+  height: $header-height;
+}
+
+

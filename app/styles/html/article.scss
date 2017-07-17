@@ -1,0 +1,12 @@
+article {
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 800px;
+  background: white;
+
+  /* to make headings in tutorials with step 1: blabla, step 2: blabla look a bit nicer */
+  .step {
+    color: $primary-color;
+  }
+
+}

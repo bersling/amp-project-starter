@@ -1,0 +1,21 @@
+/* responsive styles & variables (not in use yet) */
+$xs-sm: 500px;
+$sm-md: 700px;
+$md-lg: 900px;
+
+@media (max-width: $xs-sm) {
+  .xs-hide{display:none}
+}
+@media (min-width: $xs-sm + 1px) and (max-width: $sm-md) {
+  .sm-hide {
+    display: none;
+  }
+}
+@media (min-width: $sm-md + 1px) and (max-width: $md-lg){
+  .md-hide{display:none}
+}
+@media (min-width: $md-lg + 1px) {
+  .lg-hide {
+    display: none;
+  }
+}
