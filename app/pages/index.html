@@ -2,11 +2,11 @@
 <html ⚡ lang="en">
 <head>
 
-  <title>TypeScript MEAN</title>
-  <meta name="description" content="Liked the MEAN Stack? Now get it in TypeScript!">
+  <title>AMP Project Starter</title>
+  <meta name="description" content="You want to get started with AMP as fast as possible, but didn't find a good starter yet? You've come to the right place!">
   <meta name="keywords"
-        content="MEAN, Mongo, MongoDB, Express, ExpressJS, Angular, AngularJS, Angular 2, Angular 4, Node, NodeJS, TypeScript, TypeScriptJS, Tutorial, Seed, Boilerplate, tsmean, typemean, meants">
-  <link rel="canonical" href="http://www.tsmean.com" />
+        content="AMP, Project, Starter, Seed, Boilerplate">
+  <link rel="canonical" href="http://www.amp-project-starter.com" />
   {{> ./components/common-head.html}}
 
 </head>
@@ -15,24 +15,18 @@
   {{> ./components/analytics.html}}
   {{> ./components/header/header.html}}
 
-  <div class="jumbo-vertical huge">
+  <div class="jumbo-vertical">
   
     <h1 class="jumbo-title center">
-      <b class="highlight">AMP</b>
-      <span class="inline-block">is fast as hell.</span>
+      {{> ./components/logo/main.html}} kickstarts your AMP development.
     </h1>
   
-    <p class="jumbo-subtitle">
-      <span class="highlight"><b>amp</b>starter</span> kickstarts your AMP development.
-    </p>
-  
-    <button on="tap:subscribe-lightbox"
-            id="jumbo-stay-connected-button"
-            class="jumbo-jumbo-button">
-      Download Starter
-    </button>
+    <pre class="well padded">git clone https://github.com/bersling/amp-project-starter
+cd amp-project-starter
+npm install
+npm start</pre>
     
-    <p class="jumbo-subsubtitle">
+    <p class="jumbo-subtitle">
       What you'll get is <b>the code this homepage was built with!</b>
     </p>
     

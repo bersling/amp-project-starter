@@ -12,9 +12,9 @@ fi
 npm run build
 
 if [ "${1}" == "dev" ]; then
-  rsync -avz --delete -e 'ssh' "dist/" "${server}:tsmeanampdev/dist"
+  rsync -avz --delete -e 'ssh' "dist/" "${server}:ampstarterdev/dist"
 elif [ "${1}" == "prod" ]; then
-  rsync -avz --delete -e 'ssh' "dist/" "${server}:tsmeanamp/dist"
+  rsync -avz --delete -e 'ssh' "dist/" "${server}:ampstarter/dist"
 fi
 
 echo "Done!"

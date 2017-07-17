@@ -4,6 +4,7 @@
   "description": "Tutorial Page how to setup the TypeScript-Mean project from scratch",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run build",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && mkdir -p dist && cp -r img dist && npm run compile",

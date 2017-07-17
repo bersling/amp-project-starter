@@ -9,6 +9,8 @@ const ampHtmlValidator = require('amphtml-validator');
  * By specifying this explicity you gain full control and can also have drafts (unpublished html files)
  */
 const pages = ['index', 'articles/index'];
+addPagesToDirectory('articles/category1', ['index', 'article1', 'article2'], pages);
+addPagesToDirectory('articles/category2', ['index', 'article3'], pages);
 
 /**
  * execute all compilation steps
