@@ -13,6 +13,13 @@ addPagesToDirectory('articles/category1', ['index', 'article1', 'article2'], pag
 addPagesToDirectory('articles/category2', ['index', 'article3'], pages);
 
 /**
+ * Some constants for your project
+ */
+const projectConstants = {
+  projectUrl: 'http://amp-project-starter.com'
+};
+
+/**
  * execute all compilation steps
  */
 compileSass();
@@ -67,7 +74,6 @@ function compileMustache() {
 
   return new Promise ((resolve, reject) => {
     mu.root = __dirname + '/app';
-    const data = {};
 
     // ensure that all directories are created, so compilation doesn't fail
     pages.forEach(page => {
@@ -76,7 +82,7 @@ function compileMustache() {
 
     pages.forEach(page => {
       const writeStream = fs.createWriteStream(`./dist/${page}.html`);
-      mu.compileAndRender(`pages/${page}.html`, data)
+      mu.compileAndRender(`pages/${page}.html`, projectConstants)
         .on('data', function (data) {
           const dataStr = data.toString();
           writeStream.write(dataStr, (err) => {
@@ -107,10 +113,12 @@ function buildSitemap(pages) {
     });
   }
   const writeStream = fs.createWriteStream(`./dist/sitemap.xml`);
-  mu.compileAndRender(`app/pages/sitemap.xml.mustache`, {
+  const extendedData = {
     pages: changedPages,
     date: formatDate(new Date())
-  }).on('data', function (data) {
+  };
+  Object.assign(extendedData, projectConstants);
+  mu.compileAndRender(`app/pages/sitemap.xml.mustache`, extendedData).on('data', function (data) {
     const dataStr = data.toString();
     writeStream.write(dataStr);
   });
