@@ -21,7 +21,7 @@
 @import 'jumbo';
 @import '../components/footer/footer';
 @import '../components/header/header';
-@import '../components/learn-more/learn-more';
+@import '../components/readme/readme';
 
 /**
 Some generic styles that are reused throughout the app.
@@ -124,14 +124,4 @@ amp-accordion>section>pre.code-snippet {
 // to lightly reduce opacity of an item
 .opacity80 {
   opacity: 0.8;
-}
-
-.well {
-  border: 1px solid #e3e3e3;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-  background-color: #f0f0f0;
-  color: black;
-  text-align: left;
-
 }
