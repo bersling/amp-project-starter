@@ -15,8 +15,10 @@
     "url": "git+https://github.com/bersling/amp-project-starter.git"
   },
   "keywords": [
-    "TypeScript",
-    "MEAN"
+    "Starter",
+    "AMP",
+    "Boilerplate",
+    "Seed"
   ],
   "author": "Hans Mueller <hans@gmail.com>",
   "license": "MIT",
