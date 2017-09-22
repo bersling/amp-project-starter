@@ -117,17 +117,14 @@ function buildSitemap(pages) {
       )
     });
   }
-  const writeStream = fs.createWriteStream(`./dist/sitemap.xml`);
   const extendedData = {
     pages: changedPages,
     date: formatDate(new Date())
   };
   Object.assign(extendedData, projectConstants);
-  // TODO
-  // mu.compileAndRender(`app/pages/sitemap.xml.mustache`, extendedData).on('data', function (data) {
-  //  const dataStr = data.toString();
-  //  writeStream.write(dataStr);
-  // });
+  const sitemapTemplate = fs.readFileSync('./app/pages/sitemap.xml.mustache', 'utf8');
+  const renderedSitemap = Mustache.render(sitemapTemplate, extendedData);
+  fs.writeFileSync('./dist/sitemap.xml', renderedSitemap);
 }
 
 
