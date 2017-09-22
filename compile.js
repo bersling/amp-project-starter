@@ -16,12 +16,12 @@ const buildPartial  = (partialPath) => {
   return fs.readFileSync(path.join(partialRootPath, partialPath), 'utf8');
 }
 const partials = {
-  'footer/footer.html': buildPartial('footer/footer.html'),
-  'header/header.html': buildPartial('header/header.html'),
-  'logo/main.html': buildPartial('logo/main.html'),
-  'readme/readme.html': buildPartial('readme/readme.html'),
-  'analytics.html': buildPartial('analytics.html'),
-  'common-head/html': buildPartial('common-head.html')
+  './components/footer/footer.html': buildPartial('footer/footer.html'),
+  './components/header/header.html': buildPartial('header/header.html'),
+  './components/logo/main.html': buildPartial('logo/main.html'),
+  './components/readme/readme.html': buildPartial('readme/readme.html'),
+  './components/analytics.html': buildPartial('analytics.html'),
+  './components/common-head.html': buildPartial('common-head.html')
 }
 
 /**
@@ -89,10 +89,17 @@ function copyRobotsTxt() {
 }
 
 function compileMustache() {
+
+  // ensure that all directories are created, so compilation doesn't fail
+  pages.forEach(page => {
+    mkdir('./dist/' + path.dirname(page));
+  });
+
   pages.forEach(page => {
     const template = fs.readFileSync(path.join(pagesRootPath, `${page}.html`), {encoding: 'utf8'});
-    console.log(template);
-    const renderedPage = Mustache.render(template, {}, partials);
+    const renderedPage = Mustache.render(template, {
+      projectUrl: projectConstants.projectUrl
+    }, partials);
     fs.writeFileSync(path.join(outDirRoot, `${page}.html`), renderedPage);
   })
 }
