@@ -1,13 +1,35 @@
-const mu = require('mu2');
+const Mustache = require('mustache');
 const fs = require('fs');
 const path = require('path');
 const ampHtmlValidator = require('amphtml-validator');
 
+/**
+ * Where the result is saved
+ */
+outDirRoot = './dist';
+
+/**
+ * All partials (=components) need to be declared here
+ */
+const partialRootPath = './app/components';
+const partials = {
+  'footer': buildPartial('footer/footer.html'),
+  'header': buildPartial('header/header.html'),
+  'logo': buildPartial('logo/main.html'),
+  'readme': buildPartial('readme/readme.html'),
+  'analytics': buildPartial('analytics.html'),
+  'commonHead': buildPartial('common-head/html')
+}
+
+const buildPartial  = (partialPath) => {
+  return fs.readFileSync(path.join(partialRootPath, partialPath));
+}
 
 /**
  * Here you can define the pages you want to compile & include in your distribution folder.
  * By specifying this explicity you gain full control and can also have drafts (unpublished html files)
  */
+const pagesRootPath = './app/pages';
 const pages = ['index', 'articles/index'];
 addPagesToDirectory('articles/category1', ['index', 'article1', 'article2'], pages);
 addPagesToDirectory('articles/category2', ['index', 'article3'], pages);
@@ -71,6 +93,14 @@ function copyRobotsTxt() {
 }
 
 function compileMustache() {
+  pages.forEach(page => {
+    const template = fs.readFileSync(path.join(pagesRootPath, page));
+    const renderedPage = Mustache.render(template, {}, partials);
+    fs.writeFileSync(path.join(outDirRoot, `${page}.html`))
+  })
+}
+
+function oldCompileMustache() {
 
   return new Promise ((resolve, reject) => {
     mu.root = __dirname + '/app';
@@ -188,5 +218,3 @@ function formatDate(date) {
     (dd>9 ? '' : '0') + dd
   ].join('-');
 }
-
-

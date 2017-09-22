@@ -29,7 +29,7 @@
   "devDependencies": {
     "amphtml-validator": "^1.0.20",
     "express": "^4.15.3",
-    "mu2": "^0.5.21",
+    "mustache": "^2.3.0",
     "node-sass": "^4.5.3",
     "normalize-scss": "^7.0.0"
   }
