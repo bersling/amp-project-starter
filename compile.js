@@ -16,7 +16,7 @@ const buildPartial  = (partialPath) => {
   return fs.readFileSync(path.join(partialRootPath, partialPath), 'utf8');
 }
 const partials = {
-  './styles/styles.css': buildPartial('styles/styles.css'),
+  'styles': buildPartial('styles/styles.css'),
   'footer': buildPartial('components/footer/footer.html'),
   'header': buildPartial('components/header/header.html'),
   'logo': buildPartial('components/logo/main.html'),
