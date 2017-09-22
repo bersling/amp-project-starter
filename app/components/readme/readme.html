@@ -1,9 +1,12 @@
+<!-- README.md and readme.html are IDENTICAL. -->
+<!-- There is no build process for this, just copy past the changed file manually -->
+<!-- I would suggest editing in the .html file, since IDEs will handle that better -->
 <h1 id="ampprojectstarter">AMP Project Starter</h1>
 <p>
   Starting a new project can take a lot of time, especially if the technology is new to you. What often helps is a <b>project starter</b>, meaning a template so you can have a look at how it's done.
 </p>
 <p>For the development process, the AMP project itself has very good <a href="https://www.ampproject.org/docs/reference/components">documentation</a> and additionally there's
-  <a href="https://ampbyexample.com/">AMP by Example</a> which helps with countless examples. Both of those resources are great, but they lack information on how to <i>actually</i> build an entire AMP page. This is where this starter comes in!
+  <a href="https://ampbyexample.com/">AMP by Example</a> which helps with countless examples. Both of those resources are great, but they lack information on how to <i>actually</i> build an entire AMP page. For example, they don't tell you which templating engine would be well suited to build an AMP page. Or how to structure your css in a modular fashion. This is where this starter comes in!
 </p>
 <h2 id="installrun">Install &amp; Run</h2>
 <pre><code>git clone https://github.com/bersling/amp-project-starter
@@ -53,21 +56,20 @@ npm start</code></pre>
 <pre><code>npm run build
 </code></pre>
 <p>This executes the "build" command in "scripts" in the <code>package.json</code> file.</p>
+
 <h3 id="changingthehtml">Changing the html</h3>
 <p>Html is divided into two groups: pages and components. Pages are e.g. /about or /home. Components are things you want to <strong>reuse</strong>, for example <code>footer.html</code> which you'll use on every page. After changes, run <code>npm run build</code>.</p>
+
+<p>
+To create a new page, create the necessary (AMP compatible) html. Then open <b><code>compile.js</code></b> and
+  <b>register</b> your new page there! The same holds true for new components!
+</p>
+
 <h3 id="changingthestylescssscss">Changing the styles (css / scss)</h3>
 <p>Scss is sass, which is a precompiler for css to write more modular css. It's actually pretty easy to learn, you'll get the basics in 10 minutes by reading: http://sass-lang.com/guide</p>
 <p>If styles are for a specific component, put them in the same folder as the html. <strong>You'll have to register/import all .scss files in styles.scss!</strong></p>
 <p>If they are general-purpose styles, put them in the styles folder at a matching position.</p>
 <p>After changes, run <code>npm run build</code>.</p>
-
-<h3>
-  Creating a new page
-</h3>
-<p>
-  To create a new page, create the necessary (AMP compatible) html. Then open <b><code>compile.js</code></b> and
-  <b>register</b> your new page there!
-</p>
 
 <h3>AMP</h3>
 <p>Since it's an AMP project, you'll have to be careful to follow the rules
