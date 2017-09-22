@@ -13,7 +13,7 @@ outDirRoot = './dist';
  */
 const partialRootPath = './app/components';
 const buildPartial  = (partialPath) => {
-  return fs.readFileSync(path.join(partialRootPath, partialPath));
+  return fs.readFileSync(path.join(partialRootPath, partialPath), 'utf8');
 }
 const partials = {
   'footer/footer.html': buildPartial('footer/footer.html'),
@@ -93,39 +93,11 @@ function copyRobotsTxt() {
 
 function compileMustache() {
   pages.forEach(page => {
-    const template = fs.readFileSync(path.join(pagesRootPath, page));
+    const template = fs.readFileSync(path.join(pagesRootPath, `${page}.html`), {encoding: 'utf8'});
+    console.log(template);
     const renderedPage = Mustache.render(template, {}, partials);
     fs.writeFileSync(path.join(outDirRoot, `${page}.html`))
   })
-}
-
-function oldCompileMustache() {
-
-  return new Promise ((resolve, reject) => {
-    mu.root = __dirname + '/app';
-
-    // ensure that all directories are created, so compilation doesn't fail
-    pages.forEach(page => {
-      mkdir('./dist/' + path.dirname(page));
-    });
-
-    pages.forEach(page => {
-      const writeStream = fs.createWriteStream(`./dist/${page}.html`);
-      mu.compileAndRender(`pages/${page}.html`, projectConstants)
-        .on('data', function (data) {
-          const dataStr = data.toString();
-          writeStream.write(dataStr, (err) => {
-            if (err) {
-              reject(err)
-            } else {
-              resolve();
-            }
-          });
-        });
-    });
-
-  });
-
 }
 
 function buildSitemap(pages) {
@@ -147,10 +119,11 @@ function buildSitemap(pages) {
     date: formatDate(new Date())
   };
   Object.assign(extendedData, projectConstants);
-  mu.compileAndRender(`app/pages/sitemap.xml.mustache`, extendedData).on('data', function (data) {
-    const dataStr = data.toString();
-    writeStream.write(dataStr);
-  });
+  // TODO
+  // mu.compileAndRender(`app/pages/sitemap.xml.mustache`, extendedData).on('data', function (data) {
+  //  const dataStr = data.toString();
+  //  writeStream.write(dataStr);
+  // });
 }
 
 
