@@ -46,11 +46,8 @@ const projectConstants = {
 compileSass();
 copyRobotsTxt();
 buildSitemap(pages);
-compileMustache().then(() => {
-  validateAmp(pages);
-}).catch(err => {
-  console.log(err);
-});
+compileMustache();
+validateAmp(pages);
 
 /**
  * From here on downwards are only some implementation details...
@@ -96,7 +93,7 @@ function compileMustache() {
     const template = fs.readFileSync(path.join(pagesRootPath, `${page}.html`), {encoding: 'utf8'});
     console.log(template);
     const renderedPage = Mustache.render(template, {}, partials);
-    fs.writeFileSync(path.join(outDirRoot, `${page}.html`))
+    fs.writeFileSync(path.join(outDirRoot, `${page}.html`), renderedPage);
   })
 }
 
