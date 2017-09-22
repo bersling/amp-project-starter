@@ -17,12 +17,12 @@ const buildPartial  = (partialPath) => {
 }
 const partials = {
   './styles/styles.css': buildPartial('styles/styles.css'),
-  './components/footer/footer.html': buildPartial('components/footer/footer.html'),
-  './components/header/header.html': buildPartial('components/header/header.html'),
-  './components/logo/main.html': buildPartial('components/logo/main.html'),
-  './components/readme/readme.html': buildPartial('components/readme/readme.html'),
-  './components/analytics.html': buildPartial('components/analytics.html'),
-  './components/common-head.html': buildPartial('components/common-head.html')
+  'footer': buildPartial('components/footer/footer.html'),
+  'header': buildPartial('components/header/header.html'),
+  'logo': buildPartial('components/logo/main.html'),
+  'readme': buildPartial('components/readme/readme.html'),
+  'analytics': buildPartial('components/analytics.html'),
+  'commonHead': buildPartial('components/common-head.html')
 }
 
 /**
