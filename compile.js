@@ -11,17 +11,18 @@ outDirRoot = './dist';
 /**
  * All partials (=components) need to be declared here
  */
-const partialRootPath = './app/components';
+const partialRootPath = './app/';
 const buildPartial  = (partialPath) => {
   return fs.readFileSync(path.join(partialRootPath, partialPath), 'utf8');
 }
 const partials = {
-  './components/footer/footer.html': buildPartial('footer/footer.html'),
-  './components/header/header.html': buildPartial('header/header.html'),
-  './components/logo/main.html': buildPartial('logo/main.html'),
-  './components/readme/readme.html': buildPartial('readme/readme.html'),
-  './components/analytics.html': buildPartial('analytics.html'),
-  './components/common-head.html': buildPartial('common-head.html')
+  './styles/styles.css': buildPartial('styles/styles.css'),
+  './components/footer/footer.html': buildPartial('components/footer/footer.html'),
+  './components/header/header.html': buildPartial('components/header/header.html'),
+  './components/logo/main.html': buildPartial('components/logo/main.html'),
+  './components/readme/readme.html': buildPartial('components/readme/readme.html'),
+  './components/analytics.html': buildPartial('components/analytics.html'),
+  './components/common-head.html': buildPartial('components/common-head.html')
 }
 
 /**
