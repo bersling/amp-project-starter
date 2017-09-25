@@ -6,7 +6,7 @@ const ampHtmlValidator = require('amphtml-validator');
 /**
  * Where the result is saved
  */
-outDirRoot = './dist';
+const outDirRoot = './dist';
 
 /**
  * All partials (=components) need to be declared here

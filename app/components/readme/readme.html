@@ -6,7 +6,7 @@
   Starting a new project can take a lot of time, especially if the technology is new to you. What often helps is a <b>project starter</b>, meaning a template so you can have a look at how it's done.
 </p>
 <p>For the development process, the AMP project itself has very good <a href="https://www.ampproject.org/docs/reference/components">documentation</a> and additionally there's
-  <a href="https://ampbyexample.com/">AMP by Example</a> which helps with countless examples. Both of those resources are great, but they lack information on how to <i>actually</i> build an entire AMP page. The AMP by example page actually is built with AMP and the code is available on Github, but I find it a bit too difficult to get into for the average user. I wanted something simple to understand, yet modular and scalable. That's why I'm writing html templates with <b>Mustache</b> and use the css preprocessor <b>Sass</b> (scss). Many developers are familiar with those tools, yet they fully support a mature AMP page.
+  <a href="https://ampbyexample.com/">AMP by Example</a> which helps with countless examples. Both of those resources are great, but they lack information on how to <i>actually</i> build an entire AMP page. The AMP by example page actually is built with AMP and the code is available on Github, but it's a bit too overengineered for most people building an AMP page and not that well documented. I wanted something simple to understand, yet modular and scalable. That's why I'm writing html templates with <b>Mustache</b> and use the css preprocessor <b>Sass</b> (scss). Many developers are familiar with those tools, yet AMP pages of any size can be built with good modularity.
 </p>
 <h2 id="installrun">Install &amp; Run</h2>
 <pre><code>git clone https://github.com/bersling/amp-project-starter
@@ -15,7 +15,7 @@ npm install
 npm start</code></pre>
 <h2 id="projectstructure">Project structure</h2>
 <p>To get an overview of what you'll be working with, here's the structure:</p>
-<pre><code>tsmean-amp/
+<pre><code>amp-project-starter/
 ├── app/
 │   ├── components/ # here are reusable UI elements for your app
 │   │   ├── some-component/
@@ -37,7 +37,7 @@ npm start</code></pre>
 ├── img/ # all images
 ├── dist/ # auto-generated folder that holds the compiled sources
 ├── node_modules/ # auto-generated folder that holds the node_modules
-├── README.md # what you're currently reading
+├── README.md # what you're currently reading (copied from readme.html)
 ├── deploy.sh # deploy script, adjust to your needs...
 ├── package.json # definition of all "npm" commands &amp; packages that are required
 ├── server.js # small server to test app locally
@@ -71,7 +71,7 @@ To create a new page, create the necessary (AMP compatible) html. Then open <b><
   The following mustache implementation is used: <a href="https://github.com/janl/mustache.js">Mustache for JavaScript</a>.
 </p>
 
-<h3 id="changingthestylescssscss">CSS powered by Sass</h3>
+<h3 id="changingthestylescssscss">CSS powered by Sass (Scss)</h3>
 <p>Scss is sass, which is a precompiler for css to write more modular css. It's actually pretty easy to learn, you'll get the basics in 10 minutes by reading: http://sass-lang.com/guide</p>
 <p>If styles are for a specific component, put them in the same folder as the html. <strong>You'll have to register/import all .scss files in styles.scss!</strong></p>
 <p>If they are general-purpose styles, put them in the styles folder at a matching position.</p>
