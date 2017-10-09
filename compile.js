@@ -12,17 +12,17 @@ const outDirRoot = './dist';
  * All partials (=components) need to be declared here
  */
 const partialRootPath = './app/';
-const buildPartial  = (partialPath) => {
-  return fs.readFileSync(path.join(partialRootPath, partialPath), 'utf8');
-}
+
+// key: partial name
+// value: partial path
 const partials = {
-  'styles': buildPartial('styles/styles.css'),
-  'footer': buildPartial('components/footer/footer.html'),
-  'header': buildPartial('components/header/header.html'),
-  'logo': buildPartial('components/logo/main.html'),
-  'readme': buildPartial('components/readme/readme.html'),
-  'analytics': buildPartial('components/analytics.html'),
-  'commonHead': buildPartial('components/common-head.html')
+  'styles': 'styles/styles.css',
+  'footer': 'components/footer/footer.html',
+  'header': 'components/header/header.html',
+  'logo': 'components/logo/main.html',
+  'readme': 'components/readme/readme.html',
+  'analytics': 'components/analytics.html',
+  'commonHead': 'components/common-head.html'
 }
 
 /**
@@ -96,11 +96,18 @@ function compileMustache() {
     mkdir('./dist/' + path.dirname(page));
   });
 
+  // Read all partials.
+  // Since some parts (e.g. the styles.css) need to be built first this can't be done previously.
+  const compiledPartials = {};
+  Object.keys(partials).forEach(key => {
+    compiledPartials[key] = buildPartial(partials[key]);
+  });
+
   pages.forEach(page => {
     const template = fs.readFileSync(path.join(pagesRootPath, `${page}.html`), {encoding: 'utf8'});
     const renderedPage = Mustache.render(template, {
       projectUrl: projectConstants.projectUrl
-    }, partials);
+    }, compiledPartials);
     fs.writeFileSync(path.join(outDirRoot, `${page}.html`), renderedPage);
   })
 }
@@ -192,3 +199,10 @@ function formatDate(date) {
     (dd>9 ? '' : '0') + dd
   ].join('-');
 }
+
+/**
+ * reading the partial from a path
+ */
+function buildPartial (partialPath) {
+  return fs.readFileSync(path.join(partialRootPath, partialPath), 'utf8');
+};
